@@ -33,6 +33,9 @@ mongoose.connect('mongodb+srv://ppreddyseniorcare:dpImwq0IBO9PAf1k@cluster0.ggvh
 // Middleware
 app.use(bodyParser.json());
 
+// Serve static images
+app.use('/api/images', express.static('images'));
+
 // Routes
 app.use('/api', blogRouter);
 app.use('/api', serviceRouter);
@@ -42,9 +45,6 @@ app.use('/api', metaRouter);
 app.use('/api', galleryRouter);
 app.use('/api', iconRouter);
 app.use('/api', studioRouter);
-
-// Serve static images
-app.use('/api/images', express.static('images'));
 
 // Start the server
 app.listen(PORT, () => {

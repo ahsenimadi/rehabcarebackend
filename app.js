@@ -34,7 +34,11 @@ mongoose.connect('mongodb+srv://ppreddyseniorcare:dpImwq0IBO9PAf1k@cluster0.ggvh
 app.use(bodyParser.json());
 
 // Serve static images
-app.use('/api/images', express.static('images'));
+app.use('/api/images', (req, res, next) => {
+  console.log(`Request for image: ${req.url}`);
+  next();
+}, express.static(path.join(__dirname, 'images')));
+
 
 // Routes
 app.use('/api', blogRouter);

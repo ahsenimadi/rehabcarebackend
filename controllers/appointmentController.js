@@ -16,8 +16,8 @@ const createAppointment = async (req, res) => {
         });
 
         let mailOptions = {
-            from: 'imadiahsen8@gmail.com',
-            to: 'ppreddyseniorcare@gmail.com',
+            from: ${email},
+            to: 'imadiahsen8@gmail.com',
             subject: 'New Appointment Form Submission',
             text: `You have a new appointment form submission from:
             Name: ${name}
